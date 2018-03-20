@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace DummySample
 {
@@ -9,11 +10,15 @@ namespace DummySample
 
         public void Deposit(int amount)
         {
+            Trace.WriteLine($"User requested to deposit {amount:C}");
+
             Balance += amount;
         }
 
         public void Withdraw(int amount)
         {
+            Trace.WriteLine($"User requested to withdraw {amount:C}");
+
             if (amount < 0)
                 throw new ArgumentOutOfRangeException(nameof(amount), "You cannot withdraw a negative amount.");
 
